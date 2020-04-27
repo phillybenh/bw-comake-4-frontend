@@ -11,3 +11,14 @@ export {
     REGISTER_USER_FAIL,
     registerAction
 } from "./registerAction"
+
+export {
+    GET_PROFILE_SUCCESS,
+    GET_PROFILE_START,
+    GET_PROFILE_FAIL,
+    UPDATE_PROFILE_START,
+    UPDATE_PROFILE_SUCCESS,
+    UPDATE_PROFILE_FAIL,
+    getProfile,
+    updateProfile
+} from "./profileAction"

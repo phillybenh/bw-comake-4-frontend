@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
+import { useHistory } from "react-router-dom";
+
 
 import { loginAction, registerAction } from "../store/actions"
+
 const initialState = {
     username: "",
     password: ""
 }
 
 const Login = props => {
-
+    console.log({ props })
+    const {push} = useHistory();
     const [login, setLogin] = useState(initialState)
+
+
     const handleChange = e => {
         setLogin({
             ...login,
@@ -18,22 +24,25 @@ const Login = props => {
         })
     }
 
-    // const userLogin = (event) => {
-    //     event.preventDefault();
-    //     props.loginAction(login);
-    // };
-    // const userRegister = (event) => {
-    //     event.preventDefault();
-    //     props.registerAction(login);
-    // };
+    const userLogin = (e) => {
+        e.preventDefault();
+        props.loginAction(login);
+        // push('/main');
+
+    };
+    const userRegister = (e) => {
+        e.preventDefault();
+        props.registerAction(login);
+        // push('/userProfile');
+    };
 
 
     return (
         <>
             {props.isFetching && (
                 <Loader type="Grid" color="#00BFFF" height={80} width={80} />
-            )} 
-        <h3> Login or Register</h3>
+            )}
+            <h3> Login or Register</h3>
             <form>
                 <input
                     label="Username"
@@ -52,9 +61,9 @@ const Login = props => {
                     value={login.password}
                     onChange={handleChange}
                 />
-                
-                <button onClick={props.loginAction(login)}>Login</button>
-                <button onClick={props.registerAction(login)}>Register</button>
+
+                {/* <button onClick={userLogin}>Login</button>
+                <button onClick={userRegister}>Register</button> */}
             </form>
         </>
 
@@ -62,11 +71,11 @@ const Login = props => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.user);
+    // console.log(state.user);
     return {
         isFetching: state.user.isFetching,
         error: state.user.error,
     };
 };
 
-export default connect(mapStateToProps, {loginAction, registerAction})(Login);
+export default connect(mapStateToProps, { loginAction, registerAction })(Login);

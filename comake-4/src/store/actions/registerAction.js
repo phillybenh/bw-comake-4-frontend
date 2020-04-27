@@ -15,10 +15,10 @@ export const registerAction = newUser => {
                 console.log({ res })
                 dispatch({
                     type: REGISTER_USER_SUCCESS,
-                    payload: res.data
+                    payload: res.data,
+                    // TBD: usernamePayload: newUser.username,
                 })
                 localStorage.setItem("token", res.data.payload)
-                // newUser.history.push("/profile");
             })
             .catch(err => {
                 // console.log({err})

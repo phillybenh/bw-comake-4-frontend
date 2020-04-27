@@ -7,6 +7,7 @@ export const LOGIN_USER_FAIL = "LOGIN_USER_FAIL";
 
 export const loginAction = userLogin => {
 
+
 return dispatch => {
     dispatch({ type: LOGIN_USER_START})
     axiosWithAuth()
@@ -18,7 +19,7 @@ return dispatch => {
             payload: res.data
         })
         localStorage.setItem("token", res.data.payload)
-        // userLogin.history.push("/main");
+        
     })
     .catch (err => {
         // console.log({err})

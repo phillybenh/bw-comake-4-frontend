@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link, NavLink } from "react-rou
 
 // components
 import Login from './components/loginRegister';
+import UserProfile from './components/userProfile';
 import PrivateRoute from "./utils/PrivateRoute"
 
 // styles
@@ -16,6 +17,7 @@ function App() {
       </header>
       <Switch>
         {/* <PrivateRoute path="/main" component={XYZ}> */}
+        <Route path="/userProfile" component={UserProfile} />
         <Route path="/" component={Login} />
       </Switch>
 

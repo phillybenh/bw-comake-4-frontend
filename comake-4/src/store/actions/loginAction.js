@@ -9,7 +9,7 @@ export const loginAction = userLogin => {
 
 return dispatch => {
     dispatch({ type: LOGIN_USER_START})
-    axiosWithAuth
+    axiosWithAuth()
     .post('/login', userLogin)
     .then(res => {
         console.log({res})
@@ -18,7 +18,7 @@ return dispatch => {
             payload: res.data
         })
         localStorage.setItem("token", res.data.payload)
-        userLogin.history.push("/main");
+        // userLogin.history.push("/main");
     })
     .catch (err => {
         // console.log({err})

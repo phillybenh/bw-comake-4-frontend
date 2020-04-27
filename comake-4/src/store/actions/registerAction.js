@@ -9,7 +9,7 @@ export const registerAction = newUser => {
 
     return dispatch => {
         dispatch({ type: REGISTER_USER_START })
-        axiosWithAuth
+        axiosWithAuth()
             .post('/login', newUser)
             .then(res => {
                 console.log({ res })
@@ -18,7 +18,7 @@ export const registerAction = newUser => {
                     payload: res.data
                 })
                 localStorage.setItem("token", res.data.payload)
-                newUser.history.push("/profile");
+                // newUser.history.push("/profile");
             })
             .catch(err => {
                 // console.log({err})

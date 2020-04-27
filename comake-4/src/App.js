@@ -18,6 +18,7 @@ function App() {
         {/* <PrivateRoute path="/main" component={XYZ}> */}
         <Route path="/" component={Login} />
       </Switch>
+
     </div>
   );
 }

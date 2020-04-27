@@ -18,7 +18,7 @@ export const registerAction = newUser => {
                     payload: res.data
                 })
                 localStorage.setItem("token", res.data.payload)
-                newUser.history.push("/main");
+                newUser.history.push("/profile");
             })
             .catch(err => {
                 // console.log({err})

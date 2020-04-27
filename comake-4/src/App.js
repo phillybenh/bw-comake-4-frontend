@@ -9,7 +9,7 @@ function App() {
         <h1>App Header</h1>      
         </header>
         <h2>App</h2>
-        <Login />
+//   for testing, will be a route      <Login />
     </div>
   );
 }

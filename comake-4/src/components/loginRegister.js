@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
-import { useHistory } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
 
 import { loginAction, registerAction } from "../store/actions";
 
@@ -16,6 +16,7 @@ const Login = (props) => {
   const [login, setLogin] = useState(initialState);
 
   const handleChange = (e) => {
+      e.preventDefault();
     setLogin({
       ...login,
       [e.target.name]: e.target.value,
@@ -24,15 +25,15 @@ const Login = (props) => {
 
   const userLogin = (e) => {
     e.preventDefault();
-    props.loginAction(login);
+    props.loginAction(login)
     // temporary...
-    push('/userProfile')
+    push("/userProfile");
     // push('/main');
   };
   const userRegister = (e) => {
     e.preventDefault();
     props.registerAction(login);
-    push('/userProfile');
+    // push("/userProfile");
   };
 
   return (
@@ -70,9 +71,10 @@ const Login = (props) => {
 const mapStateToProps = (state) => {
   console.log(state.user);
   return {
+    username: state.user.username,
     isFetching: state.user.isFetching,
     error: state.user.error,
   };
 };
 
-export default connect(mapStateToProps, { loginAction, registerAction })(Login);
+export default withRouter( connect(mapStateToProps, { loginAction, registerAction })(Login));

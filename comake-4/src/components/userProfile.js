@@ -6,27 +6,27 @@ import { useHistory } from "react-router-dom";
 import { getProfile, updateProfile } from "../store/actions";
 
 const UserProfile = (props) => {
-  
-    console.log(props.username);
-  
-    useEffect(() => {
-    getProfile();
-  }, []);
+//   console.log(props);
+
+  useEffect(() => {
+    props.getProfile(localStorage.getItem("userID"));
+  }, [props]);
 
   const initialState = {
     username: props.username,
-    firstName: props.firstName,
-    lastName: props.lastName,
+    first_name: props.first_name,
+    last_name: props.last_name,
     zip: props.zip,
     bio: props.bio,
-    isFetching: props.isFetching,
-    error: props.error,
+    id: props.id,
+    // isFetching: props.isFetching,
+    // error: props.error,
   };
 
   const [userInfo, setUserInfo] = useState(initialState);
 
   const handleChange = (e) => {
-    e.persist();
+      e.persist();
     setUserInfo({
       ...userInfo,
       [e.target.name]: e.target.value,
@@ -38,14 +38,21 @@ const UserProfile = (props) => {
     props.updateProfile(userInfo);
   };
 
+  const logout = e => {
+      localStorage.removeItem("token");
+      localStorage.removeItem("userID");
+      window.location.reload(false);
+  }
+
   return (
     <>
-      <h2>User Profile</h2>
+      <h2>{`${props.username} Profile`}</h2>
       {props.isFetching && (
         <Loader type="Grid" color="#00BFFF" height={80} width={80} />
       )}
-      <form>
-        <input
+      
+      <form onSubmit={handleSubmit}>
+        {/* <input
           label="Username"
           type="text"
           name="Username"
@@ -53,21 +60,21 @@ const UserProfile = (props) => {
           value={userInfo.username}
           onChange={handleChange}
         />
-        <br />
+        <br /> */}
         <input
           label="First Name"
           type="text"
-          name="firstName"
+          name="first_name"
           placeholder="First Name"
-          value={userInfo.firstName}
+          value={userInfo.first_name}
           onChange={handleChange}
         />
         <input
           label="Last Name"
           type="text"
-          name="lastName"
+          name="last_name"
           placeholder="Last Name"
-          value={userInfo.lastName}
+          value={userInfo.last_name}
           onChange={handleChange}
         />
         <input
@@ -88,18 +95,20 @@ const UserProfile = (props) => {
         />
         <button>Update</button>
       </form>
+      <button onClick={logout}>Logout</button>
     </>
   );
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.user);
+  //   console.log(state.user);
   return {
     username: state.user.username,
-    firstName: state.user.firstName,
-    lastName: state.user.lastName,
+    first_name: state.user.first_name,
+    last_name: state.user.last_name,
     zip: state.user.zip,
     bio: state.user.bio,
+    id: state.user.id,
     isFetching: false,
     error: state.user.error,
   };

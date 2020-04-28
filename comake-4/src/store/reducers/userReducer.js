@@ -32,9 +32,11 @@ export const userReducer = (state = initialState, action) => {
                 isFetching: true
             };
         case LOGIN_USER_SUCCESS:
+            localStorage.setItem("token", action.payload.token)
+
             return {
                 ...state,
-                username: action.payload.username,
+                username: action.userLogin,
                 firstName: action.payload.first_name,
                 lastName: action.payload.last_name,
                 zip: action.payload.zip,
@@ -53,9 +55,11 @@ export const userReducer = (state = initialState, action) => {
                 isFetching: true
             };
         case REGISTER_USER_SUCCESS:
+            localStorage.setItem("token", action.payload.token)
+
             return {
                 ...state,
-                username: action.payload.username,
+                username: action.newUser,
                 isFetching: false,
             };
         case REGISTER_USER_FAIL:

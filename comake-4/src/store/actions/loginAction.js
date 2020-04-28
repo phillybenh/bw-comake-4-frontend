@@ -7,18 +7,19 @@ export const LOGIN_USER_FAIL = "LOGIN_USER_FAIL";
 
 export const loginAction = userLogin => {
 
+    console.log({ userLogin })
 
 return dispatch => {
     dispatch({ type: LOGIN_USER_START})
     axiosWithAuth()
-    .post('/login', userLogin)
+    .post('/login', userLogin,)
     .then(res => {
         console.log({res})
         dispatch({
             type: LOGIN_USER_SUCCESS,
-            payload: res.data
+            payload: res.data,
+            userLogin: userLogin.username
         })
-        localStorage.setItem("token", res.data.payload)
         
     })
     .catch (err => {

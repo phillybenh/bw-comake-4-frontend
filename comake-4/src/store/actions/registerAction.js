@@ -19,7 +19,7 @@ export const registerAction = newUser => {
                 dispatch({
                     type: REGISTER_USER_SUCCESS,
                     token: res.data.token,
-                    user: res.data.user,
+                    // user: res.data.user,
                 })
             })
             .catch(err => {

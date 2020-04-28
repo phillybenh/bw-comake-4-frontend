@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { getProfile, updateProfile } from "../store/actions";
 
 const UserProfile = (props) => {
-//   console.log(props);
+  //   console.log(props);
 
   useEffect(() => {
     props.getProfile(localStorage.getItem("userID"));
@@ -16,7 +16,7 @@ const UserProfile = (props) => {
     username: props.username,
     first_name: props.first_name,
     last_name: props.last_name,
-    zip: props.zip,
+    zip_code: props.zip_code,
     bio: props.bio,
     id: props.id,
     // isFetching: props.isFetching,
@@ -26,7 +26,7 @@ const UserProfile = (props) => {
   const [userInfo, setUserInfo] = useState(initialState);
 
   const handleChange = (e) => {
-      e.persist();
+    e.persist();
     setUserInfo({
       ...userInfo,
       [e.target.name]: e.target.value,
@@ -38,21 +38,30 @@ const UserProfile = (props) => {
     props.updateProfile(userInfo);
   };
 
-  const logout = e => {
-      localStorage.removeItem("token");
-      localStorage.removeItem("userID");
-      window.location.reload(false);
-  }
+  const logout = (e) => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userID");
+    window.location.reload(false);
+  };
 
   return (
     <>
       <h2>{`${props.username} Profile`}</h2>
+
       {props.isFetching && (
         <Loader type="Grid" color="#00BFFF" height={80} width={80} />
       )}
-      
-      <form onSubmit={handleSubmit}>
-        {/* <input
+      <div className="userData">
+        <ul>
+          <li>{props.first_name}</li>
+          <li>{props.last_name}</li>
+          <li>{props.zip_code}</li>
+          <li>{props.bio}</li>
+        </ul>
+      </div>
+      <div className="updateForm">
+        <form onSubmit={handleSubmit}>
+          {/* <input
           label="Username"
           type="text"
           name="Username"
@@ -61,41 +70,42 @@ const UserProfile = (props) => {
           onChange={handleChange}
         />
         <br /> */}
-        <input
-          label="First Name"
-          type="text"
-          name="first_name"
-          placeholder="First Name"
-          value={userInfo.first_name}
-          onChange={handleChange}
-        />
-        <input
-          label="Last Name"
-          type="text"
-          name="last_name"
-          placeholder="Last Name"
-          value={userInfo.last_name}
-          onChange={handleChange}
-        />
-        <input
-          label="Zip Code"
-          type="number"
-          name="zip"
-          placeholder="Zip Code"
-          value={userInfo.zip}
-          onChange={handleChange}
-        />
-        <textarea
-          label="Bio"
-          type="text"
-          name="bio"
-          placeholder="Tell us a little about yourself."
-          value={userInfo.bio}
-          onChange={handleChange}
-        />
-        <button>Update</button>
-      </form>
-      <button onClick={logout}>Logout</button>
+          <input
+            label="First Name"
+            type="text"
+            name="first_name"
+            placeholder="First Name"
+            value={userInfo.first_name}
+            onChange={handleChange}
+          />
+          <input
+            label="Last Name"
+            type="text"
+            name="last_name"
+            placeholder="Last Name"
+            value={userInfo.last_name}
+            onChange={handleChange}
+          />
+          <input
+            label="Zip Code"
+            type="number"
+            name="zip_code"
+            placeholder="Zip Code"
+            value={userInfo.zip_code}
+            onChange={handleChange}
+          />
+          <textarea
+            label="Bio"
+            type="text"
+            name="bio"
+            placeholder="Tell us a little about yourself."
+            value={userInfo.bio}
+            onChange={handleChange}
+          />
+          <button>Update</button>
+        </form>
+      </div>
+      <button className="logoutButton" onClick={logout}>Logout</button>
     </>
   );
 };
@@ -106,7 +116,7 @@ const mapStateToProps = (state) => {
     username: state.user.username,
     first_name: state.user.first_name,
     last_name: state.user.last_name,
-    zip: state.user.zip,
+    zip_code: state.user.zip_code,
     bio: state.user.bio,
     id: state.user.id,
     isFetching: false,

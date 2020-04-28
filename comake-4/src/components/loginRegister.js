@@ -33,7 +33,7 @@ const Login = (props) => {
   const userRegister = (e) => {
     e.preventDefault();
     props.registerAction(login);
-    // push("/userProfile");
+    push("/userProfile");
   };
 
   return (

@@ -1,7 +1,17 @@
-import React, {useState} from 'react';
-import './App.css';
+
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link, NavLink } from "react-router-dom";
+
+// components
+import Login from './components/loginRegister';
+import UserProfile from './components/userProfile';
+import PrivateRoute from "./utils/PrivateRoute";
 import IssueForm from './IssueForm';
-import Issues from './Issues'
+import Issues from './Issues';
+
+// styles
+import './App.css';
+
 
 function App() {
   const [issueBoard, setIssueBoard] = useState ([
@@ -28,10 +38,16 @@ const addNewIssue = note => {
     <div className="App">
       <header className="App-header">
         <h1>Co-make 4</h1>      
-        </header>
-        <h2>Submit New Issue</h2>
+      </header>
+     <h2>Submit New Issue</h2>
         <IssueForm addNewIssue={addNewIssue}/>
         <Issues issue={issueBoard} />
+      <Switch>
+        {/* TODO: Set non-login pages to be protected routes
+        <PrivateRoute path="/main" component={XYZ}> */}
+        <PrivateRoute path="/userProfile" component={UserProfile} />
+        <Route path="/" component={Login} />
+      </Switch>
     </div>
   );
 }

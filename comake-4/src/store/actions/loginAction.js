@@ -1,5 +1,6 @@
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
+
 export const LOGIN_USER_START = "LOGIN_USER_START";
 export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
 export const LOGIN_USER_FAIL = "LOGIN_USER_FAIL";
@@ -7,7 +8,7 @@ export const LOGIN_USER_FAIL = "LOGIN_USER_FAIL";
 
 export const loginAction = userLogin => {
 
-    console.log({ userLogin })
+    // console.log({ userLogin })
 
 return dispatch => {
     dispatch({ type: LOGIN_USER_START})
@@ -17,8 +18,8 @@ return dispatch => {
         console.log({res})
         dispatch({
             type: LOGIN_USER_SUCCESS,
-            payload: res.data,
-            userLogin: userLogin.username
+            token: res.data.token,
+            user: res.data.user,
         })
         
     })
@@ -30,7 +31,6 @@ return dispatch => {
         })
     })
 }
-
 
 
 }

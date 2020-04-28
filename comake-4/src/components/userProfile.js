@@ -6,21 +6,21 @@ import { useHistory } from "react-router-dom";
 import { getProfile, updateProfile } from "../store/actions";
 
 const UserProfile = (props) => {
-  
-    console.log(props.username);
-  
-    useEffect(() => {
-    getProfile();
-  }, []);
+  //   console.log(props);
+
+  useEffect(() => {
+    props.getProfile(localStorage.getItem("userID"));
+  }, [props]);
 
   const initialState = {
     username: props.username,
-    firstName: props.firstName,
-    lastName: props.lastName,
-    zip: props.zip,
+    first_name: props.first_name,
+    last_name: props.last_name,
+    zip_code: props.zip_code,
     bio: props.bio,
-    isFetching: props.isFetching,
-    error: props.error,
+    id: props.id,
+    // isFetching: props.isFetching,
+    // error: props.error,
   };
 
   const [userInfo, setUserInfo] = useState(initialState);
@@ -38,14 +38,30 @@ const UserProfile = (props) => {
     props.updateProfile(userInfo);
   };
 
+  const logout = (e) => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userID");
+    window.location.reload(false);
+  };
+
   return (
     <>
-      <h2>User Profile</h2>
+      <h2>{`${props.username} Profile`}</h2>
+
       {props.isFetching && (
         <Loader type="Grid" color="#00BFFF" height={80} width={80} />
       )}
-      <form>
-        <input
+      <div className="userData">
+        <ul>
+          <li>{props.first_name}</li>
+          <li>{props.last_name}</li>
+          <li>{props.zip_code}</li>
+          <li>{props.bio}</li>
+        </ul>
+      </div>
+      <div className="updateForm">
+        <form onSubmit={handleSubmit}>
+          {/* <input
           label="Username"
           type="text"
           name="Username"
@@ -53,53 +69,56 @@ const UserProfile = (props) => {
           value={userInfo.username}
           onChange={handleChange}
         />
-        <br />
-        <input
-          label="First Name"
-          type="text"
-          name="firstName"
-          placeholder="First Name"
-          value={userInfo.firstName}
-          onChange={handleChange}
-        />
-        <input
-          label="Last Name"
-          type="text"
-          name="lastName"
-          placeholder="Last Name"
-          value={userInfo.lastName}
-          onChange={handleChange}
-        />
-        <input
-          label="Zip Code"
-          type="number"
-          name="zip"
-          placeholder="Zip Code"
-          value={userInfo.zip}
-          onChange={handleChange}
-        />
-        <textarea
-          label="Bio"
-          type="text"
-          name="bio"
-          placeholder="Tell us a little about yourself."
-          value={userInfo.bio}
-          onChange={handleChange}
-        />
-        <button>Update</button>
-      </form>
+        <br /> */}
+          <input
+            label="First Name"
+            type="text"
+            name="first_name"
+            placeholder="First Name"
+            value={userInfo.first_name}
+            onChange={handleChange}
+          />
+          <input
+            label="Last Name"
+            type="text"
+            name="last_name"
+            placeholder="Last Name"
+            value={userInfo.last_name}
+            onChange={handleChange}
+          />
+          <input
+            label="Zip Code"
+            type="number"
+            name="zip_code"
+            placeholder="Zip Code"
+            value={userInfo.zip_code}
+            onChange={handleChange}
+          />
+          <textarea
+            label="Bio"
+            type="text"
+            name="bio"
+            placeholder="Tell us a little about yourself."
+            value={userInfo.bio}
+            onChange={handleChange}
+          />
+          <button>Update</button>
+        </form>
+      </div>
+      <button className="logoutButton" onClick={logout}>Logout</button>
     </>
   );
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.user);
+  //   console.log(state.user);
   return {
     username: state.user.username,
-    firstName: state.user.firstName,
-    lastName: state.user.lastName,
-    zip: state.user.zip,
+    first_name: state.user.first_name,
+    last_name: state.user.last_name,
+    zip_code: state.user.zip_code,
     bio: state.user.bio,
+    id: state.user.id,
     isFetching: false,
     error: state.user.error,
   };

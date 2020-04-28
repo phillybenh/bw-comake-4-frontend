@@ -16,10 +16,11 @@ import {
 
 export const initialState = {
     username: "",
-    firstName: "",
-    lastName: "",
-    zip: "",
+    first_name: "",
+    last_name: "",
+    zip_code: "",
     bio: "",
+    id: "",
     isFetching: false,
     error: "",
 }
@@ -32,15 +33,17 @@ export const userReducer = (state = initialState, action) => {
                 isFetching: true
             };
         case LOGIN_USER_SUCCESS:
-            localStorage.setItem("token", action.payload.token)
-
+            localStorage.setItem("token", JSON.stringify(action.token))
+            localStorage.setItem("userID", action.user.id)
+            // console.log(action.payload.token)
             return {
                 ...state,
-                username: action.userLogin,
-                firstName: action.payload.first_name,
-                lastName: action.payload.last_name,
-                zip: action.payload.zip,
-                bio: action.payload.bio,
+                username: action.user.username,
+                first_name: action.user.first_name,
+                last_name: action.user.last_name,
+                zip_code: action.user.zip_code,
+                bio: action.user.bio,
+                id: action.user.id,
                 isFetching: false,
             };
         case LOGIN_USER_FAIL:
@@ -55,11 +58,12 @@ export const userReducer = (state = initialState, action) => {
                 isFetching: true
             };
         case REGISTER_USER_SUCCESS:
-            localStorage.setItem("token", action.payload.token)
+            localStorage.setItem("token", JSON.stringify(action.token))
 
             return {
                 ...state,
-                username: action.newUser,
+                // username: action.user.username,
+                // id: action.user.id,
                 isFetching: false,
             };
         case REGISTER_USER_FAIL:
@@ -69,12 +73,15 @@ export const userReducer = (state = initialState, action) => {
                 error: action.payload
             };
         case GET_PROFILE_SUCCESS:
+            localStorage.setItem("userID", action.payload.id)
+
             return {
                 ...state,
                 username: action.payload.username,
-                firstName: action.payload.first_name,
-                lastName: action.payload.last_name,
-                zip: action.payload.zip,
+                first_name: action.payload.first_name,
+                last_name: action.payload.last_name,
+                zip_code: action.payload.zip_code,
+                id: action.payload.id,
                 bio: action.payload.bio,
                 isFetching: false,
             };

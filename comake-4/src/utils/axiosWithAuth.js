@@ -8,7 +8,7 @@ export const axiosWithAuth = () => {
         headers: {
             authorization: token,
         },
-        // TODO: Update with baseURl for our APi
-        // baseURL: "http://localhost:5000",
+        
+        baseURL: "https://comake-api.herokuapp.com",
     });
 };

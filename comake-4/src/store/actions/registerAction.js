@@ -7,18 +7,20 @@ export const REGISTER_USER_FAIL = "REGISTER_USER_FAIL";
 
 export const registerAction = newUser => {
 
+    console.log({ newUser })
+
+
     return dispatch => {
         dispatch({ type: REGISTER_USER_START })
         axiosWithAuth()
-            .post('/login', newUser)
+            .post('/register', newUser,)
             .then(res => {
                 console.log({ res })
                 dispatch({
                     type: REGISTER_USER_SUCCESS,
                     payload: res.data,
-                    // TBD: usernamePayload: newUser.username,
+                    newUser: newUser.username
                 })
-                localStorage.setItem("token", res.data.payload)
             })
             .catch(err => {
                 // console.log({err})

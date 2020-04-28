@@ -16,11 +16,11 @@ function App() {
         <h1>App Header</h1>
       </header>
       <Switch>
-        {/* <PrivateRoute path="/main" component={XYZ}> */}
-        <Route path="/userProfile" component={UserProfile} />
+        {/* TODO: Set non-login pages to be protected routes
+        <PrivateRoute path="/main" component={XYZ}> */}
+        <PrivateRoute path="/userProfile" component={UserProfile} />
         <Route path="/" component={Login} />
       </Switch>
-
     </div>
   );
 }

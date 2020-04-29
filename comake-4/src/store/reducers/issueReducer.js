@@ -5,6 +5,9 @@ import {
     DELETE_ISSUES_START,
     DELETE_ISSUES_FAIL,
     DELETE_ISSUES_SUCCESS,
+    EDIT_ISSUES_START,
+    EDIT_ISSUES_FAIL,
+    EDIT_ISSUES_SUCCESS,
 } from "../actions"
 
 export const initialState = {
@@ -52,6 +55,22 @@ export const issueReducer = (state = initialState, action) => {
                 error: action.payload,
             };
         case DELETE_ISSUES_SUCCESS:
+            return {
+                ...state,
+                isFetching: false
+            };
+        case EDIT_ISSUES_START:
+            return {
+                ...state,
+                isFetching: true
+            };
+        case EDIT_ISSUES_FAIL:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload,
+            };
+        case EDIT_ISSUES_SUCCESS:
             return {
                 ...state,
                 isFetching: false

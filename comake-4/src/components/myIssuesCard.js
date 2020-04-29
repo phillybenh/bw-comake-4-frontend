@@ -1,18 +1,21 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 
-import { deleteMyIssue } from "../store/actions";
+import { deleteMyIssue, editMyIssue } from "../store/actions";
 
 const MyIssuesCard = props => {
     console.log({ props })
+      const { push } = useHistory();
+
 
     const deleteIssue = () => {
-        
         props.deleteMyIssue(props.issue.id); 
         props.setModified(props.modified + 1);
-        
-
+    }
+    const editMyIssue = () => {
+        push(`/editIssue/${props.issue.id}`);
     }
 
     return (
@@ -23,11 +26,11 @@ const MyIssuesCard = props => {
                 <li>{`Score: ${props.issue.upvotes}`}</li>
             </ul>
             <button className="deleteButton" onClick={deleteIssue}>Delete Issue</button>
-            <button className="button editButton">Edit Issue</button>
+            <button className="button editButton" onClick={editMyIssue}>Edit Issue</button>
 
         </div>
     )
 
 
 }
-export default connect(null, { deleteMyIssue })(MyIssuesCard); 
+export default connect(null, { deleteMyIssue, editMyIssue })(MyIssuesCard); 

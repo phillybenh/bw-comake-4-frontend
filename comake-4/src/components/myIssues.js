@@ -15,7 +15,7 @@ const MyIssues = (props) => {
         props.getMyIssues();
     }, [modified]);
 
-    console.log({props})
+    // console.log({props})
   return (
     <>
       <header>
@@ -33,7 +33,7 @@ const MyIssues = (props) => {
           <p>You have no open issues</p>
         ) : (
           props.myIssues.map((issue) => {
-            console.log({ issue });
+            // console.log({ issue });
             return <MyIssuesCard issue={issue} modified={modified} setModified={setModified} />;
           })
         )}

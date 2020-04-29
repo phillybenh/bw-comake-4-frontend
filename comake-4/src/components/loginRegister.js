@@ -4,6 +4,7 @@ import Loader from "react-loader-spinner";
 import { useHistory, withRouter } from "react-router-dom";
 
 import { loginAction, registerAction } from "../store/actions";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const initialState = {
   username: "",
@@ -16,7 +17,7 @@ const Login = (props) => {
   const [login, setLogin] = useState(initialState);
 
   const handleChange = (e) => {
-      e.preventDefault();
+    e.preventDefault();
     setLogin({
       ...login,
       [e.target.name]: e.target.value,
@@ -25,15 +26,40 @@ const Login = (props) => {
 
   const userLogin = (e) => {
     e.preventDefault();
-    props.loginAction(login)
-    // temporary...
-    push("/userProfile");
-    // push('/main');
+    // props.loginAction(login)
+    axiosWithAuth()
+      .post("/login", login)
+      .then((res) => {
+        localStorage.setItem("token", JSON.stringify(res.data.token));
+        localStorage.setItem("userID", res.data.user.id);
+        console.log({ res });
+        props.loginAction(res);
+        // temporary...
+        push("/userProfile");
+        // push('/main');
+      })
+      .catch((err) => {
+        props.loginAction(err);
+      });
   };
   const userRegister = (e) => {
     e.preventDefault();
-    props.registerAction(login);
-    push("/userProfile");
+
+    axiosWithAuth()
+      .post("/register", login)
+      .then((res) => {
+        localStorage.setItem("token", JSON.stringify(res.data.token));
+        localStorage.setItem("userID", res.data.user.id);
+
+        console.log({ res });
+        props.registerAction(res);
+        push("/userProfile");
+      })
+      .catch((err) => {
+        props.registerAction(err);
+
+        // console.log({err})
+      });
   };
 
   return (
@@ -77,4 +103,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withRouter( connect(mapStateToProps, { loginAction, registerAction })(Login));
+export default withRouter(
+  connect(mapStateToProps, { loginAction, registerAction })(Login)
+);

@@ -35,7 +35,7 @@ const Login = (props) => {
         console.log({ res });
         props.loginAction(res);
         // temporary...
-        push("/userProfile");
+        push("/main");
         // push('/main');
       })
       .catch((err) => {

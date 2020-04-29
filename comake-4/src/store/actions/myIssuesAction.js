@@ -17,7 +17,7 @@ export const getMyIssues = props => {
     return dispatch => {
         dispatch({ type: GET_ISSUES_START })
         axiosWithAuth()
-        //- GET 
+        //TODO: reset to just get the users issues
             .get(`/issues?user_id=2`)
             // .get('/issues')
             .then(res => {

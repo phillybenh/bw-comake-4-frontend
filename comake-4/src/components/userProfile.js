@@ -112,7 +112,7 @@ const UserProfile = (props) => {
           <button>Update</button>
         </form>
       </div>
-      <div className="otherButtone">
+      <div className="otherButton">
         <button onClick={() => push("/myIssues")}>Go to my open issues!</button>
         <button className="logoutButton" onClick={logout}>
           Logout

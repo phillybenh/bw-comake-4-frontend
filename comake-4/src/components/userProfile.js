@@ -48,6 +48,11 @@ const UserProfile = (props) => {
 
   return (
     <>
+      <header>
+        <nav>
+          <button onClick={() => push("/main")}>Main</button>
+        </nav>
+      </header>
       <h2>{`${props.username} Profile`}</h2>
 
       {props.isFetching && (

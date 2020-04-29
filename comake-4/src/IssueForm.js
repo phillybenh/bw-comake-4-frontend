@@ -1,5 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import * as yup from 'yup';
+import styled from 'styled-components';
+
+
+const NewButton = styled.button `
+  cursor: pointer;
+  background-color: #8A2BE2;
+  width: 180px;
+  color: #fff;
+  padding: 8px 11px;
+  fontsize: 1.4rem;
+  font-family: 'Montserrat', sans-serif;
+  
+`
 
 
 const issueSchema = yup.object().shape({
@@ -51,36 +64,38 @@ const IssueForm = props => {
     }
 
     const issueChange = e => {
-        e.persist()
+        e.persist();
         const newIssueDate = {
-            ...issue, [e.target.name] : e.target.type === e.target.value
+            ...issue, [e.target.name] : e.target.value
         }
         validateIssue(e)
-        setIssue(issueChange)
+        setIssue(newIssueDate)
     }
 
     return (
        <form onSubmit={submitIssue}>
-           <label htmlFor='title'>Title
+           <label htmlFor='title'>
            <input 
            id='title' 
            name='title' 
            type='text' 
            onChange={issueChange} 
            value={issue.title} 
+           placeholder='Title'
            />
-           {errors.title.length > 0 ? <p className='error'>{errors.name}</p> : null }
+           {errors.title.length > 0 ? <p className='error'>{errors.title}</p> : null }
            </label>
-           <label htmlFor='description'>Description
+           <label htmlFor='description'>
            <textarea id ='description' 
            name='description' 
            onChange={issueChange} 
-           value={issue.description} 
+           value={issue.description}
+           placeholder='Description' 
            />
            {errors.description.length > 0 ? <p className='error'>{errors.description}</p> : null}
 
            </label>
-           <button type='submit' disabled={buttonOff}>Submit</button>
+           <NewButton type='submit' disabled={buttonOff}>Submit</NewButton>
        </form> 
     )
 }

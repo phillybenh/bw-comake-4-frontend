@@ -17,7 +17,17 @@ import IssueForm from "./IssueForm";
 import Issues from "./Issues";
 
 // styles
-import "./App.css";
+import './App.css';
+import styled from 'styled-components';
+
+const NewForm = styled.form `
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 300px;
+  margin: 0 auto;
+`
+
 
 function App() {
   const [issueBoard, setIssueBoard] = useState([
@@ -40,11 +50,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Co-make 4</h1>
+        <h1 className='App-h1'>Co-make-4</h1>      
       </header>
-      <h2>Submit New Issue</h2>
-      <IssueForm addNewIssue={addNewIssue} />
-      <Issues issue={issueBoard} />
+    <div className='borderDiv'>
+     <h2 className='SubmitIssue'>Submit New Issue</h2>
+      <NewForm>
+        <IssueForm addNewIssue={addNewIssue}/>
+      </NewForm>
+     </div>
+        <Issues issue={issueBoard} />
+
       <Switch>
         {/* TODO: Set non-login pages to be protected routes
         <PrivateRoute path="/main" component={XYZ}> */}

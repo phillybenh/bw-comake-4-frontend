@@ -1,17 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import { useHistory } from "react-router-dom";
 
 import MyIssuesCard from "./myIssuesCard";
-import {getMyIssues} from "../store/actions"
+import { getMyIssues } from "../store/actions";
 
 const MyIssues = (props) => {
   const { push } = useHistory();
+  const initialState = 1;
+  const [modified, setModified] = useState(initialState);
 
     useEffect(() => {
         props.getMyIssues();
-    }, []);
+    }, [modified]);
 
     console.log({props})
   return (
@@ -23,13 +25,18 @@ const MyIssues = (props) => {
         </nav>
       </header>
       <h2> My Issues</h2>
+      {props.isFetching && (
+        <Loader type="Grid" color="#00BFFF" height={80} width={80} />
+      )}
       <div className="myIssuesContainer">
-          {props.myIssues.errorMessage && <p>You have no open issues</p> || 
-         props.myIssues.map((issue) => {
-          console.log({ issue });
-          return <MyIssuesCard issue={issue} />;
-        })} 
-        
+        {props.myIssues.errorMessage ? (
+          <p>You have no open issues</p>
+        ) : (
+          props.myIssues.map((issue) => {
+            console.log({ issue });
+            return <MyIssuesCard issue={issue} modified={modified} setModified={setModified} />;
+          })
+        )}
       </div>
     </>
   );
@@ -37,16 +44,12 @@ const MyIssues = (props) => {
 const mapStateToProps = (state) => {
   //   console.log(state.user);
   return {
-    // username: state.issues.username,
-    // first_name: state.issues.first_name,
-    // last_name: state.issues.last_name,
-    // zip_code: state.issues.zip_code,
-    // bio: state.issues.bio,
-    // id: state.issues.id,
     isFetching: state.issues.false,
     error: state.issues.error,
     myIssues: state.issues.myIssues,
   };
 };
 
-export default connect(mapStateToProps, {getMyIssues})(MyIssues);
+export default connect(mapStateToProps, { getMyIssues })(
+  MyIssues
+);

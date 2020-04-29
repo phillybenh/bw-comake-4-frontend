@@ -27,5 +27,9 @@ export {
     GET_ISSUES_START,
     GET_ISSUES_FAIL,
     GET_ISSUES_SUCCESS,
+    DELETE_ISSUES_START,
+    DELETE_ISSUES_FAIL,
+    DELETE_ISSUES_SUCCESS,
     getMyIssues,
+    deleteMyIssue,
 } from "./myIssuesAction"

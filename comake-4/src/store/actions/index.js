@@ -30,10 +30,17 @@ export {
     DELETE_ISSUES_START,
     DELETE_ISSUES_FAIL,
     DELETE_ISSUES_SUCCESS,
+    getMyIssues,
+    deleteMyIssue,
+} from "./myIssuesAction"
+
+export {
     EDIT_ISSUES_START,
     EDIT_ISSUES_FAIL,
     EDIT_ISSUES_SUCCESS,
-    getMyIssues,
-    deleteMyIssue,
+    GET_EDIT_ISSUES_START,
+    GET_EDIT_ISSUES_FAIL,
+    GET_EDIT_ISSUES_SUCCESS,
     editMyIssue,
-} from "./myIssuesAction"
+    getEditMyIssue,
+} from "./editIssueAction"

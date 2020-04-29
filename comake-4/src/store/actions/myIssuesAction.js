@@ -6,6 +6,9 @@ export const GET_ISSUES_SUCCESS = "GET_ISSUES_SUCCESS";
 export const DELETE_ISSUES_START = "DELETE_ISSUES_START";
 export const DELETE_ISSUES_FAIL = "DELETE_ISSUES_FAIL";
 export const DELETE_ISSUES_SUCCESS = "DELETE_ISSUES_SUCCESS";
+export const EDIT_ISSUES_START = "EDIT_ISSUES_START";
+export const EDIT_ISSUES_FAIL = "EDIT_ISSUES_FAIL";
+export const EDIT_ISSUES_SUCCESS = "EDIT_ISSUES_SUCCESS";
 
 
 
@@ -15,7 +18,7 @@ export const getMyIssues = props => {
         dispatch({ type: GET_ISSUES_START })
         axiosWithAuth()
         //- GET 
-            .get(`/issues?user_id=1`)
+            .get(`/issues?user_id=2`)
             // .get('/issues')
             .then(res => {
                 console.log({ res })
@@ -53,6 +56,29 @@ export const deleteMyIssue = props => {
                 console.log({ err })
                 dispatch({
                     type: DELETE_ISSUES_FAIL,
+                    payload: `${err}`
+                })
+            })
+    }
+
+}
+export const editMyIssue = props => {
+    console.log({ props })
+    return dispatch => {
+        dispatch({ type: EDIT_ISSUES_START })
+        axiosWithAuth()
+            // .delete(`/issues/${props}`)
+            .then(res => {
+                console.log({ res })
+                dispatch({
+                    type: EDIT_ISSUES_SUCCESS,
+                    payload: res.data,
+                })
+            })
+            .catch(err => {
+                console.log({ err })
+                dispatch({
+                    type: EDIT_ISSUES_FAIL,
                     payload: `${err}`
                 })
             })

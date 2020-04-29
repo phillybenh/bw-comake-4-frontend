@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch, Link, NavLink } from "react-rou
 // components
 import Login from './components/loginRegister';
 import UserProfile from './components/userProfile';
+import MyIssues from './components/myIssues'
 import PrivateRoute from "./utils/PrivateRoute";
 import IssueForm from './IssueForm';
 import Issues from './Issues';
@@ -38,14 +39,15 @@ const addNewIssue = note => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Co-make 4</h1>      
+        <h1>Co-make 4</h1>
       </header>
-     <h2>Submit New Issue</h2>
-        <IssueForm addNewIssue={addNewIssue}/>
-        <Issues issue={issueBoard} />
+      <h2>Submit New Issue</h2>
+      <IssueForm addNewIssue={addNewIssue} />
+      <Issues issue={issueBoard} />
       <Switch>
         {/* TODO: Set non-login pages to be protected routes
         <PrivateRoute path="/main" component={XYZ}> */}
+        <PrivateRoute path="/myIssues" component={MyIssues} />
         <PrivateRoute path="/userProfile" component={UserProfile} />
         <Route path="/" component={Login} />
       </Switch>

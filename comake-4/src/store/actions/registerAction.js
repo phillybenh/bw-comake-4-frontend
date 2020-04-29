@@ -1,4 +1,3 @@
-import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
 export const REGISTER_USER_START = "REGISTER_USER_START";
 export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";

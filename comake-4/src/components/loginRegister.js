@@ -39,7 +39,8 @@ const Login = (props) => {
         // push('/main');
       })
       .catch((err) => {
-        props.loginAction(err);
+        console.log(err);
+        alert("Please enter a valid username and password, or register a new account.")
       });
   };
   const userRegister = (e) => {
@@ -56,8 +57,8 @@ const Login = (props) => {
         push("/userProfile");
       })
       .catch((err) => {
-        props.registerAction(err);
-
+        console.log(err);
+        alert("There was an error. Please try again.")
         // console.log({err})
       });
   };

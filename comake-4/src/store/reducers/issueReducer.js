@@ -2,6 +2,9 @@ import {
     GET_ISSUES_START,
     GET_ISSUES_FAIL,
     GET_ISSUES_SUCCESS,
+    DELETE_ISSUES_START,
+    DELETE_ISSUES_FAIL,
+    DELETE_ISSUES_SUCCESS,
 } from "../actions"
 
 export const initialState = {
@@ -35,6 +38,22 @@ export const issueReducer = (state = initialState, action) => {
             return {
                 ...state,
                 myIssues: action.payload,
+                isFetching: false
+            };
+        case DELETE_ISSUES_START:
+            return {
+                ...state,
+                isFetching: true
+            };
+        case DELETE_ISSUES_FAIL:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload,
+            };
+        case DELETE_ISSUES_SUCCESS:
+            return {
+                ...state,
                 isFetching: false
             };
         default:

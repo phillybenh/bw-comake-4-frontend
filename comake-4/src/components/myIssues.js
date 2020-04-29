@@ -4,7 +4,7 @@ import Loader from "react-loader-spinner";
 import { useHistory } from "react-router-dom";
 
 import MyIssuesCard from "./myIssuesCard";
-import {getMyIssues} from "../store/actions"
+import { getMyIssues } from "../store/actions";
 
 const MyIssues = (props) => {
   const { push } = useHistory();
@@ -49,4 +49,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {getMyIssues})(MyIssues);
+export default connect(mapStateToProps, { getMyIssues })(
+  MyIssues
+);

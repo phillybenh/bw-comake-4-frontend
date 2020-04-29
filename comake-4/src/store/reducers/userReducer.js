@@ -23,6 +23,7 @@ export const initialState = {
     id: "",
     isFetching: false,
     error: "",
+    myIssues: [], 
 }
 
 export const userReducer = (state = initialState, action) => {
@@ -63,10 +64,7 @@ export const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 username: action.user.username,
-                // first_name: action.user.first_name,
-                // last_name: action.user.last_name,
-                // zip_code: action.user.zip_code,
-                // bio: action.user.bio,
+
                 id: action.user.id,
                 isFetching: false,
             };

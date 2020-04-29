@@ -1,6 +1,3 @@
-import { axiosWithAuth } from '../../utils/axiosWithAuth';
-import history from "../../utils/history"
-
 
 export const LOGIN_USER_START = "LOGIN_USER_START";
 export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";

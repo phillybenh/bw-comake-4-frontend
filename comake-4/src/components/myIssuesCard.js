@@ -8,7 +8,11 @@ const MyIssuesCard = props => {
     console.log({ props })
 
     const deleteIssue = () => {
-        props.deleteMyIssue(props.issue.id)
+        
+        props.deleteMyIssue(props.issue.id); 
+        props.setModified(props.modified + 1);
+        
+
     }
 
     return (
@@ -17,8 +21,9 @@ const MyIssuesCard = props => {
             <ul>
                 <li>{`${props.issue.description}`}</li>
                 <li>{`Score: ${props.issue.upvotes}`}</li>
-                <li><button className="deleteButton" onClick={deleteIssue}>X</button></li>
             </ul>
+            <button className="deleteButton" onClick={deleteIssue}>Delete Issue</button>
+            <button className="button editButton">Edit Issue</button>
 
         </div>
     )

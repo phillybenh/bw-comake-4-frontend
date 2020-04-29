@@ -1,14 +1,20 @@
-
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link, NavLink } from "react-router-dom";
-
+import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  NavLink,
+} from "react-router-dom";
 
 // components
-import Login from './components/loginRegister';
-import UserProfile from './components/userProfile';
+import Login from "./components/loginRegister";
+import UserProfile from "./components/userProfile";
+import MyIssues from "./components/myIssues";
+import EditIssue from "./components/editIssue";
 import PrivateRoute from "./utils/PrivateRoute";
-import IssueForm from './IssueForm';
-import Issues from './Issues';
+import IssueForm from "./IssueForm";
+import Issues from "./Issues";
 
 // styles
 import './App.css';
@@ -22,26 +28,24 @@ const NewForm = styled.form `
   margin: 0 auto;
 `
 
+
 function App() {
-  const [issueBoard, setIssueBoard] = useState ([
+  const [issueBoard, setIssueBoard] = useState([
     {
-    id: 1,
-    title: 'Potholes',
-    description: 'There are potholes all around our city!'
-  }
-])
+      id: 1,
+      title: "Potholes",
+      description: "There are potholes all around our city!",
+    },
+  ]);
 
-const addNewIssue = note => {
-  const newIssue = {
-    id:Date.now(),
-    title: note.title,
-    description: note.description
-  }
-  setIssueBoard([...issueBoard, newIssue])
-}
-
-
-
+  const addNewIssue = (note) => {
+    const newIssue = {
+      id: Date.now(),
+      title: note.title,
+      description: note.description,
+    };
+    setIssueBoard([...issueBoard, newIssue]);
+  };
 
   return (
     <div className="App">
@@ -55,9 +59,12 @@ const addNewIssue = note => {
       </NewForm>
      </div>
         <Issues issue={issueBoard} />
+
       <Switch>
         {/* TODO: Set non-login pages to be protected routes
         <PrivateRoute path="/main" component={XYZ}> */}
+        <PrivateRoute path="/editIssue/:id" component={EditIssue} />
+        <PrivateRoute path="/myIssues" component={MyIssues} />
         <PrivateRoute path="/userProfile" component={UserProfile} />
         <Route path="/" component={Login} />
       </Switch>

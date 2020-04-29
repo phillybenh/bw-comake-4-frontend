@@ -23,6 +23,7 @@ export const initialState = {
     id: "",
     isFetching: false,
     error: "",
+    myIssues: [], 
 }
 
 export const userReducer = (state = initialState, action) => {
@@ -33,8 +34,8 @@ export const userReducer = (state = initialState, action) => {
                 isFetching: true
             };
         case LOGIN_USER_SUCCESS:
-            localStorage.setItem("token", JSON.stringify(action.token))
-            localStorage.setItem("userID", action.user.id)
+            // localStorage.setItem("token", JSON.stringify(action.token))
+            // localStorage.setItem("userID", action.user.id)
             // console.log(action.payload.token)
             return {
                 ...state,
@@ -58,12 +59,13 @@ export const userReducer = (state = initialState, action) => {
                 isFetching: true
             };
         case REGISTER_USER_SUCCESS:
-            localStorage.setItem("token", JSON.stringify(action.token))
+            // localStorage.setItem("token", JSON.stringify(action.token))
 
             return {
                 ...state,
-                // username: action.user.username,
-                // id: action.user.id,
+                username: action.user.username,
+
+                id: action.user.id,
                 isFetching: false,
             };
         case REGISTER_USER_FAIL:

@@ -7,10 +7,13 @@ import { getProfile, updateProfile } from "../store/actions";
 
 const UserProfile = (props) => {
   //   console.log(props);
+  const { push } = useHistory();
+  const modState = 1;
+  const [modified, setModified] = useState(modState);
 
   useEffect(() => {
     props.getProfile(localStorage.getItem("userID"));
-  }, [props]);
+  }, [modified]);
 
   const initialState = {
     username: props.username,
@@ -19,8 +22,6 @@ const UserProfile = (props) => {
     zip_code: props.zip_code,
     bio: props.bio,
     id: props.id,
-    // isFetching: props.isFetching,
-    // error: props.error,
   };
 
   const [userInfo, setUserInfo] = useState(initialState);
@@ -36,6 +37,7 @@ const UserProfile = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.updateProfile(userInfo);
+    setModified(modified + 1);
   };
 
   const logout = (e) => {
@@ -53,10 +55,10 @@ const UserProfile = (props) => {
       )}
       <div className="userData">
         <ul>
-          <li>{props.first_name}</li>
-          <li>{props.last_name}</li>
-          <li>{props.zip_code}</li>
-          <li>{props.bio}</li>
+          <li>First Name: {props.first_name}</li>
+          <li>Last Name: {props.last_name}</li>
+          <li>Zip Code: {props.zip_code}</li>
+          <li>Bio: {props.bio}</li>
         </ul>
       </div>
       <div className="updateForm">
@@ -105,7 +107,12 @@ const UserProfile = (props) => {
           <button>Update</button>
         </form>
       </div>
-      <button className="logoutButton" onClick={logout}>Logout</button>
+      <div className="otherButtone">
+        <button onClick={() => push("/myIssues")}>Go to my open issues!</button>
+        <button className="logoutButton" onClick={logout}>
+          Logout
+        </button>
+      </div>
     </>
   );
 };

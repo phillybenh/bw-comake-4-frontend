@@ -40,7 +40,7 @@ const Main = () => {
             <header>
                 <nav>
                     <button onClick={() => push("/userProfile")}>User Profile</button>
-                    <button onClick={() => push("/main")}>Main</button>
+                    {/* <button onClick={() => push("/main")}>Main</button> */}
                 </nav>
             </header>
             <div className='borderDiv'>

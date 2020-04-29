@@ -8,8 +8,8 @@ import { getProfile, updateProfile } from "../store/actions";
 const UserProfile = (props) => {
   //   console.log(props);
   const { push } = useHistory();
-  const modState = 1;
-  const [modified, setModified] = useState(modState);
+  const initMod = 1;
+  const [modified, setModified] = useState(initMod);
 
   useEffect(() => {
     props.getProfile(localStorage.getItem("userID"));
@@ -112,7 +112,7 @@ const UserProfile = (props) => {
           <button>Update</button>
         </form>
       </div>
-      <div className="otherButtone">
+      <div className="otherButton">
         <button onClick={() => push("/myIssues")}>Go to my open issues!</button>
         <button className="logoutButton" onClick={logout}>
           Logout

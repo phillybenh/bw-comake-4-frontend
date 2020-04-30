@@ -37,7 +37,16 @@ export const editIssueReducer = (state = initialState, action) => {
         case EDIT_ISSUES_SUCCESS:
             return {
                 ...state,
-                isFetching: false
+                issue: {
+                    description: "",
+                    id: "",
+                    short_description: "",
+                    upvotes: "",
+                    user_id: "",
+                    zip_code: "",
+                },
+                isFetching: false,
+                error: "",
             };
         case GET_EDIT_ISSUES_START:
             return {

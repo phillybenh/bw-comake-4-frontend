@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 
-import { deleteMyIssue } from "../store/actions";
+import { deleteMyIssue, getEditMyIssue } from "../store/actions";
 
 const MyIssuesCard = props => {
-    // console.log({ props })
+    console.log("myissuecard",{ props })
       const { push } = useHistory();
 
 
@@ -33,4 +33,4 @@ const MyIssuesCard = props => {
 
 
 }
-export default connect(null, { deleteMyIssue })(MyIssuesCard); 
+export default connect(null, { deleteMyIssue, getEditMyIssue })(MyIssuesCard); 

@@ -15,7 +15,7 @@ export const getProfile = props => {
         axiosWithAuth()
             .get(`/users/${localStorage.getItem("userID")}`)
             .then(res => {
-                console.log({ res })
+                // console.log({ res })
                 dispatch({
                     type: GET_PROFILE_SUCCESS,
                     payload: res.data,

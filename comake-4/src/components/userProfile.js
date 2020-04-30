@@ -95,7 +95,9 @@ const UserProfile = (props) => {
           />
           <input
             label="Zip Code"
-            type="number"
+            type="text"
+            pattern="(\d{5}?)"
+            // pattern="(\d{5}([\-]\d{4})?)"
             name="zip_code"
             placeholder="Zip Code"
             value={userInfo.zip_code}

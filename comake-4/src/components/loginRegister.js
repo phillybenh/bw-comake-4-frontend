@@ -52,9 +52,7 @@ const Login = (props) => {
         localStorage.setItem("userID", res.data.user.id);
         console.log({ res });
         props.loginAction(res);
-        // temporary...
         push("/main");
-        // push('/main');
       })
       .catch((err) => {
         console.log(err);

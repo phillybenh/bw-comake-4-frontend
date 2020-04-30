@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import { useHistory } from "react-router-dom";
 
-
-
-
 import IssueForm from "./IssueForm";
 import Issues from "./Issues";
 
@@ -40,7 +37,7 @@ const Main = () => {
 
     const addNewIssue = (note) => {
         const newIssue = {
-            id: Date.now(),
+            // id: Date.now(),
             short_description: note.short_description,
             description: note.description,
             zip_code: note.zip_code

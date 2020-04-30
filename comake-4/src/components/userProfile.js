@@ -133,7 +133,7 @@ const UserProfile = (props) => {
           <NewButton>Update</NewButton>
         </NewForm>
       <div className="otherButton">
-        <NewButton onClick={() => push("/myIssues")}>Go to my open issues!</NewButton>
+        <NewButton onClick={() => push("/myIssues")}>My Open Issues</NewButton>
         <NewButton className="logoutButton" onClick={logout}>
           Logout
         </NewButton>

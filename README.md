@@ -1,9 +1,13 @@
 # frontend
-React 1 &amp; 2 Teams
+
+React 1: [emixo](https://github.com/emixo) 
+React 2: [phillybenh](https://github.com/phillybenh)
 
 [Comake 4!](http://bw-comake-4.now.sh)
 
 [Product Vision Document](https://docs.google.com/document/d/19cj7ZuVeynSKy3n5PHvHS1GKXavlr_-4IpCCjDo3JE0/edit?usp=sharing)
+
+[Wireframe](https://whimsical.com/QBYpHL4M3f3CWH7e8XK1Ek)
 
 Co-Make Product Vision
 ☝️ Proposal

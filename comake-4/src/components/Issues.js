@@ -19,7 +19,17 @@ const H2Card = styled.h2`
     width: 70%;
     text-align: center;
     `
-
+const NewButton = styled.button`
+  cursor: pointer;
+  background-color: #8A2BE2;
+  width: 180px;
+  color: #fff;
+  padding: 8px 11px;
+  fontsize: 1.4rem;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;  
+`
 const Issues = props => {
 
     const [allIssues, setAllIssues] = useState([]);
@@ -58,7 +68,7 @@ const Issues = props => {
 
     const downvote = issue => {
         console.log(issue)
-        let value = { value: 1 };
+        let value = { value: -Math.abs(1) };
         console.log(value)
 
         axiosWithAuth()
@@ -84,8 +94,8 @@ const Issues = props => {
                         <p>{e.description}</p>
                         <p>Zip Code: {e.zip_code}</p>
                         <p>Points: {e.upvotes}</p>
-                        <button onClick={() => upvote(e)}>Upvote</button>
-                        <button onClick={() => upvote(e)}>Downvote</button>
+                        <NewButton onClick={() => upvote(e)}>Upvote</NewButton>
+                        <NewButton onClick={() => upvote(e)}>Downvote</NewButton>
                     </DivCard>
                 )
             })}

@@ -1,6 +1,7 @@
 # frontend
 
 React 1: [emixo](https://github.com/emixo) 
+
 React 2: [phillybenh](https://github.com/phillybenh)
 
 [Comake 4!](http://bw-comake-4.now.sh)

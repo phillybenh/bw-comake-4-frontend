@@ -61,7 +61,7 @@ const EditIssue = (props) => {
           <input
             label="Title:"
             type="text"
-            name="short_description}"
+            name="short_description"
             placeholder="Issue Title"
             value={editIssue.short_description}
             onChange={handleChange}

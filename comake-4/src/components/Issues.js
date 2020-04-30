@@ -26,8 +26,9 @@ const Issues = props => {
           <h1>Local Issues</h1>
           {props.issue.map(e =>(
               <DivCard key={e.id}>
-                  <H2Card>{e.title}</H2Card>
+                  <H2Card>{e.short_description}</H2Card>
                   <p>{e.description}</p>
+                  <p>{e.zip_code}</p>
               </DivCard>
           ))}     
       </div>

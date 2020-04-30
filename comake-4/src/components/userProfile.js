@@ -4,6 +4,24 @@ import Loader from "react-loader-spinner";
 import { useHistory } from "react-router-dom";
 
 import { getProfile, updateProfile } from "../store/actions";
+import styled from 'styled-components';
+
+const NewButton = styled.button `
+  cursor: pointer;
+  background-color: #8A2BE2;
+  width: 180px;
+  color: #fff;
+  padding: 8px 11px;
+  fontsize: 1.4rem;
+  font-family: 'Montserrat', sans-serif;
+  
+`
+const NewForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+`
 
 const UserProfile = (props) => {
   //   console.log(props);
@@ -50,10 +68,11 @@ const UserProfile = (props) => {
     <>
       <header>
         <nav>
-          <button onClick={() => push("/main")}>Main</button>
+          <NewButton onClick={() => push("/main")}>Main</NewButton>
         </nav>
       </header>
-      <h2>{`${props.username} Profile`}</h2>
+      <div className='styling'>
+      <h2 className='profileH2'>{`${props.username}'s Profile`}</h2>
 
       {props.isFetching && (
         <Loader type="Grid" color="#00BFFF" height={80} width={80} />
@@ -67,7 +86,7 @@ const UserProfile = (props) => {
         </ul>
       </div>
       <div className="updateForm">
-        <form onSubmit={handleSubmit}>
+        <NewForm onSubmit={handleSubmit}>
           {/* <input
           label="Username"
           type="text"
@@ -111,14 +130,15 @@ const UserProfile = (props) => {
             value={userInfo.bio}
             onChange={handleChange}
           />
-          <button>Update</button>
-        </form>
-      </div>
+          <NewButton>Update</NewButton>
+        </NewForm>
       <div className="otherButton">
-        <button onClick={() => push("/myIssues")}>Go to my open issues!</button>
-        <button className="logoutButton" onClick={logout}>
+        <NewButton onClick={() => push("/myIssues")}>Go to my open issues!</NewButton>
+        <NewButton className="logoutButton" onClick={logout}>
           Logout
-        </button>
+        </NewButton>
+        </div>
+        </div>
       </div>
     </>
   );

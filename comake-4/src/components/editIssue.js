@@ -6,39 +6,41 @@ import { useHistory, useParams } from "react-router-dom";
 import { editMyIssue, getEditMyIssue } from "../store/actions";
 
 const EditIssue = (props) => {
+  console.log({ props });
   const { push } = useHistory();
   const { id } = useParams();
-  // using 'modified' to force the useEffect to fire when I want it to
-  const initMod = 1;
-  const [modified, setModified] = useState(initMod);
+
   useEffect(() => {
     props.getEditMyIssue(id);
-  }, [modified]);
+  }, []);
+  const initialState = {};
 
-    const initialState = {
+  const [editIssue, setEditIssue] = useState(initialState);
+
+  useEffect(() => {
+    props.getEditMyIssue(id);
+    setEditIssue({
       description: props.description,
       id: props.id,
       short_description: props.short_description,
       upvotes: props.upvotes,
       user_id: props.user_id,
       zip_code: props.zip_code,
-    };
-  
-  const [issue, setIssue] = useState(initialState);
-
+    });
+  }, [props]);
 
   const handleChange = (e) => {
     e.persist();
-    setIssue({
-      ...issue,
+    setEditIssue({
+      ...editIssue,
       [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.editMyIssue(issue);
-    setModified(modified + 1);
+    props.editMyIssue(editIssue);
+    push("/myIssues");
   };
 
   return (
@@ -60,8 +62,8 @@ const EditIssue = (props) => {
             label="Title:"
             type="text"
             name="short_description}"
-            placeholder={props.issue.short_description}
-            value={issue.short_description}
+            placeholder="Issue Title"
+            value={editIssue.short_description}
             onChange={handleChange}
           />
           <br />
@@ -69,8 +71,8 @@ const EditIssue = (props) => {
             label="Description:"
             type="text"
             name="description"
-            placeholder={props.issue.description}
-            value={issue.description}
+            placeholder="Issue Description"
+            value={editIssue.description}
             onChange={handleChange}
           />
           <button>Update Issue</button>
@@ -85,7 +87,6 @@ const mapStateToProps = (state) => {
   return {
     isFetching: state.editIssue.false,
     error: state.editIssue.error,
-    issue: state.editIssue.issue,
     description: state.editIssue.issue.description,
     id: state.editIssue.issue.id,
     short_description: state.editIssue.issue.short_description,

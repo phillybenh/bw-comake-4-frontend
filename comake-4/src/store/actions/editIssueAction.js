@@ -9,13 +9,13 @@ export const GET_EDIT_ISSUES_SUCCESS = "GET_EDIT_ISSUES_SUCCESS";
 
 
 export const editMyIssue = props => {
-    console.log({ props })
+    console.log("edit", { props })
     return dispatch => {
         dispatch({ type: EDIT_ISSUES_START })
         axiosWithAuth()
             .put(`/issues/${props.id}`, props)
             .then(res => {
-                console.log({ res })
+                console.log("edit res", { res })
                 dispatch({
                     type: EDIT_ISSUES_SUCCESS,
                     payload: res.data,
@@ -32,7 +32,7 @@ export const editMyIssue = props => {
 
 }
 export const getEditMyIssue = props => {
-    // console.log({ props })
+    console.log("getEdit", { props })
     return dispatch => {
         dispatch({ type: GET_EDIT_ISSUES_START })
         axiosWithAuth()

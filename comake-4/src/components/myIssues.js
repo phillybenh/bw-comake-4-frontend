@@ -11,6 +11,9 @@ const MyIssues = (props) => {
   const initialState = 1;
   const [modified, setModified] = useState(initialState);
 
+  useEffect(() => {
+    props.getMyIssues();
+  }, []);
     useEffect(() => {
         props.getMyIssues();
     }, [modified]);

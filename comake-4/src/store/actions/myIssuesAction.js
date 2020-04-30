@@ -16,7 +16,7 @@ export const getMyIssues = props => {
         dispatch({ type: GET_ISSUES_START })
         axiosWithAuth()
         //TODO: reset to just get the users issues
-            .get(`/issues?user_id=3`)
+            .get(`/issues?user_id=${localStorage.getItem("userID")}`)
             // .get('/issues')
             .then(res => {
                 console.log({ res })

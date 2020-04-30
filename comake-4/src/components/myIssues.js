@@ -27,6 +27,7 @@ const MyIssues = (props) => {
   useEffect(() => {
     props.getMyIssues();
   }, []);
+  
     useEffect(() => {
         props.getMyIssues();
     }, [modified]);

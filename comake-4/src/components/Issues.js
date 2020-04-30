@@ -51,12 +51,12 @@ const Issues = props => {
     console.log({ allIssues })
 
     const upvote = issue => {
-        console.log(issue)
-        let value = {value: 1};
-        console.log(value)
+        // console.log(issue)
+        const upValue = {value: 1};
+        console.log(upValue)
 
         axiosWithAuth()
-            .put(`/issues/${issue.id}`, value)
+            .put(`/issues/${issue.id}`, upValue)
             .then((res) => {
                 console.log({ res });
                 setModified(modified + 1)
@@ -67,12 +67,12 @@ const Issues = props => {
     }
 
     const downvote = issue => {
-        console.log(issue)
-        let value = { value: -Math.abs(1) };
-        console.log(value)
+        // console.log(issue)
+        const downValue = { value: -1 };
+        console.log({ downValue})
 
         axiosWithAuth()
-            .put(`/issues/${issue.id}`, value)
+            .put(`/issues/${issue.id}`, downValue)
             .then((res) => {
                 console.log({ res });
                 setModified(modified + 1)
@@ -95,7 +95,7 @@ const Issues = props => {
                         <p>Zip Code: {e.zip_code}</p>
                         <p>Points: {e.upvotes}</p>
                         <NewButton onClick={() => upvote(e)}>Upvote</NewButton>
-                        <NewButton onClick={() => upvote(e)}>Downvote</NewButton>
+                        <NewButton onClick={() => downvote(e)}>Downvote</NewButton>
                     </DivCard>
                 )
             })}

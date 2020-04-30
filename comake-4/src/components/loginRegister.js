@@ -2,9 +2,27 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import { useHistory, withRouter } from "react-router-dom";
+import styled from 'styled-components';
 
 import { loginAction, registerAction } from "../store/actions";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+
+
+const NewButton = styled.button `
+  cursor: pointer;
+  background-color: #8A2BE2;
+  width: 180px;
+  color: #fff;
+  padding: 8px 11px;
+  fontsize: 1.4rem;
+  font-family: 'Montserrat', sans-serif; 
+`
+const NewForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+`
 
 const initialState = {
   username: "",
@@ -68,8 +86,8 @@ const Login = (props) => {
       {props.isFetching && (
         <Loader type="Grid" color="#00BFFF" height={80} width={80} />
       )}
-      <h3> Login or Register</h3>
-      <form>
+      <h3 className='loginH3'> Login or Register</h3>
+      <NewForm>
         <input
           label="Username"
           type="text"
@@ -88,9 +106,9 @@ const Login = (props) => {
           onChange={handleChange}
         />
 
-        <button onClick={userLogin}>Login</button>
-        <button onClick={userRegister}>Register</button>
-      </form>
+        <NewButton onClick={userLogin}>Login</NewButton>
+        <NewButton onClick={userRegister}>Register</NewButton>
+      </NewForm>
     </>
   );
 };

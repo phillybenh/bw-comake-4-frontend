@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import * as yup from 'yup';
 import styled from 'styled-components';
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 
 const NewButton = styled.button `
@@ -11,25 +12,31 @@ const NewButton = styled.button `
   padding: 8px 11px;
   fontsize: 1.4rem;
   font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+
   
 `
 
 
 const issueSchema = yup.object().shape({
-    title: yup.string().required('Title is required'),
+    short_description: yup.string().required('Title is required'),
     description: yup.string().required('Description is required'),
+    zip_code: yup.string().required('ZipCode is required')
 })
 
 
 const IssueForm = props => {
     const [issue, setIssue] = useState({
-       title: '',
-       description: ''
+       short_description: '',
+       description: '',
+       zip_code: ''
     })
 
     const [errors, setErrors] = useState({
-        title: '',
-        description: ''
+        short_description: '',
+        description: '',
+        zip_code: ''
     })
 
     const [buttonOff, setButtonOff] = useState(true)
@@ -39,6 +46,10 @@ const IssueForm = props => {
             setButtonOff(!valid)
         })
     },[issue])
+
+
+
+    const [postData, setPostData] = useState([]);
 
     const validateIssue = e => {
         yup.reach(issueSchema, e.target.name)
@@ -60,7 +71,22 @@ const IssueForm = props => {
     const submitIssue = e => {
         e.preventDefault();
         props.addNewIssue(issue)
-        setIssue({title:'', description:''})
+        setIssue({short_description:'', description:'', zip_code:''})
+        axiosWithAuth()
+        .post('https://comake-api.herokuapp.com/issues',issue)
+        .then(res => {
+            setPostData([...postData, res.postData]);
+            console.log('success', postData)
+
+            setIssue({
+              short_description: '',
+              description: '',
+              zip_code: '',
+            })
+        })
+        .catch(err => {
+            console.log(err.res)
+        })
     }
 
     const issueChange = e => {
@@ -74,16 +100,16 @@ const IssueForm = props => {
 
     return (
        <form onSubmit={submitIssue}>
-           <label htmlFor='title'>
+           <label htmlFor='short_description'>
            <input 
-           id='title' 
-           name='title' 
+           id='short_description' 
+           name='short_description' 
            type='text' 
            onChange={issueChange} 
-           value={issue.title} 
+           value={issue.short_description} 
            placeholder='Title'
            />
-           {errors.title.length > 0 ? <p className='error'>{errors.title}</p> : null }
+           {errors.short_description.length > 0 ? <p className='error'>{errors.short_description}</p> : null }
            </label>
            <label htmlFor='description'>
            <textarea id ='description' 
@@ -93,7 +119,17 @@ const IssueForm = props => {
            placeholder='Description' 
            />
            {errors.description.length > 0 ? <p className='error'>{errors.description}</p> : null}
-
+           </label>
+           <label htmlFor='zipcode'>
+           <input 
+           id='zipcode' 
+           name='zip_code' 
+           type='number' 
+           onChange={issueChange} 
+           value={issue.zip_code} 
+           placeholder='ZipCode'
+           />
+           {errors.zip_code.length > 0 ? <p className='error'>{errors.zip_code}</p> : null}
            </label>
            <NewButton type='submit' disabled={buttonOff}>Submit</NewButton>
        </form> 

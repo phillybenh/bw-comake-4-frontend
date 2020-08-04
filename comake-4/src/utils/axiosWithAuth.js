@@ -9,6 +9,6 @@ export const axiosWithAuth = () => {
             Authorization: token,
         },
         
-        baseURL: "https://comake-api.herokuapp.com",
+        baseURL: "https://comake-remake.herokuapp.com/",
     });
 };

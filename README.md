@@ -1,5 +1,5 @@
 # COMAKE Redeploy
-[Comake-Remake](bw-comake-4-frontend.phillybenh.now.sh)
+[Comake-Remake](https://bw-comake-4-frontend.phillybenh.now.sh)
  In an effort to get my portfolio in order and keep the projects updated, I'm redeploying this react app that was originally created for a Lambda School build week group project. 
  
  [Original Project Repo](https://github.com/bw-comake-4)

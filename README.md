@@ -19,8 +19,8 @@ In an effort to get my portfolio in order and keep the project updated, I'm refa
 | Component      | Update          | Completed? |
 | :------------- | :-------------- | :--------: |
 | Login/Register | Sass            |     ✅     |
-|                | Styling         |            |
-|                | Code Quality    |            |
+|                | Styling         |     ✅     |
+|                | Code Quality    |     ✅     |
 |                | Test Coverage   |            |
 |                | Form Validation |            |
 | User Profile   | Sass            |            |

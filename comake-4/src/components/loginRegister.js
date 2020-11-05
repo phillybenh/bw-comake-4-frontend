@@ -1,28 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import Loader from "react-loader-spinner";
 import { useHistory, withRouter } from "react-router-dom";
-import styled from 'styled-components';
 
 import { loginAction, registerAction } from "../store/actions";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-
-
-const NewButton = styled.button `
-  cursor: pointer;
-  background-color: #8A2BE2;
-  width: 180px;
-  color: #fff;
-  padding: 8px 11px;
-  fontsize: 1.4rem;
-  font-family: 'Montserrat', sans-serif; 
-`
-const NewForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  margin: 0 auto;
-`
 
 const initialState = {
   username: "",
@@ -30,7 +11,6 @@ const initialState = {
 };
 
 const Login = (props) => {
-  // console.log({ props })
   const { push } = useHistory();
   const [login, setLogin] = useState(initialState);
 
@@ -44,7 +24,6 @@ const Login = (props) => {
 
   const userLogin = (e) => {
     e.preventDefault();
-    // props.loginAction(login)
     axiosWithAuth()
       .post("/login", login)
       .then((res) => {
@@ -75,22 +54,18 @@ const Login = (props) => {
       .catch((err) => {
         console.log(err);
         alert("There was an error. Please try again.")
-        // console.log({err})
       });
   };
 
   return (
-    <>
-      {props.isFetching && (
-        <Loader type="Grid" color="#00BFFF" height={80} width={80} />
-      )}
-      <h3 className='loginH3'> Login or Register</h3>
-      <NewForm>
+    <div className="loginContainer">
+      <h2>Please log in or register new account.</h2>
+      <form>
         <input
           label="Username"
           type="text"
           name="username"
-          placeholder="username"
+          placeholder="Username"
           value={login.username}
           onChange={handleChange}
         />
@@ -99,15 +74,16 @@ const Login = (props) => {
           label="Password"
           type="password"
           name="password"
-          placeholder="password"
+          placeholder="Password"
           value={login.password}
           onChange={handleChange}
         />
-
-        <NewButton onClick={userLogin}>Login</NewButton>
-        <NewButton onClick={userRegister}>Register</NewButton>
-      </NewForm>
-    </>
+        <div className="btnRow">
+        <button onClick={userLogin}>Login</button>
+        <button onClick={userRegister}>Register</button>
+        </div>
+      </form>
+    </div>
   );
 };
 

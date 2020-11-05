@@ -3,8 +3,6 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link,
-  NavLink,
 } from "react-router-dom";
 
 // components
@@ -22,9 +20,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className='App-h1'>Co-make-4</h1>      
+        <h1>Co-make-4</h1>      
       </header>
-   
 
       <Switch>
         <PrivateRoute path="/main" component={Main} /> 

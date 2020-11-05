@@ -5,10 +5,6 @@ export const REGISTER_USER_FAIL = "REGISTER_USER_FAIL";
 
 
 export const registerAction = res => {
-
-    // console.log({ res })
-
-
     return dispatch => {
         dispatch({ type: REGISTER_USER_START })
         dispatch({
@@ -21,25 +17,4 @@ export const registerAction = res => {
             payload: `${res}`
         })
     }
-    //     axiosWithAuth()
-    //         .post('/register', newUser,)
-    //         .then(res => {
-    //             console.log({ res })
-    //             dispatch({
-    //                 type: REGISTER_USER_SUCCESS,
-    //                 token: res.data.token,
-    //                 // user: res.data.user,
-    //             })
-    //         })
-    //         .catch(err => {
-    //             // console.log({err})
-    //             dispatch({
-    //                 type: REGISTER_USER_FAIL,
-    //                 payload: `${err}`
-    //             })
-    //         })
-
-
-
-
 }

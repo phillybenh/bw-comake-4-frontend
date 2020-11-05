@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,600;0,800;1,300&display=swap");
+@import "variables.scss";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $primary-background;
+  width: 95%;
+  margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
+  background-color: $primary-highlight;
+  width: 180px;
+  margin: 10px 0;
+  color: $primary-background;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: $button-size;
+}
+
+h1 {
+  font-size: $primary-heading-size;
+  font-weight: 800;
+  color: $primary-text;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid $primary-border;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+h2 {
+  font-size: $secondary-heading-size;
+  font-weight: 600;
+  color: $primary-text;
+}
+h3 {
+  font-size: $secondary-heading-size;
+  font-weight: 300;
+  color: $primary-text;
+}
+
+p,
+li {
+  font-size: $primary-text-size;
+  font-weight: 600;
+  line-height: 1.2rem;
+}
+
+.btnRow {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  button {
+    margin: 10px;
+  }
+}
+
+.SubmitIssue {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: 1px;
+  margin-bottom: 2.5%;
+}
+
+.borderDiv {
+  border: 1px solid $primary-border;
+  margin-left: 7%;
+  margin-right: 7%;
+  padding-bottom: 4%;
+  display: flex;
+  flex-direction: column;
+}
+
+.localIssuesList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  border: 1px solid $primary-border;
+  margin-left: 7%;
+  margin-right: 7%;
+  padding-bottom: 3%;
+}

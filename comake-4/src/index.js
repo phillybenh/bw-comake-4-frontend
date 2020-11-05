@@ -14,7 +14,7 @@ import rootReducer from "./store/reducers";
 
 
 // Styling
-import './index.css';
+import './sass/index.scss';
 
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));

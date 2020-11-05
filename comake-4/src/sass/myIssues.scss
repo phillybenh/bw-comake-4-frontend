@@ -1,0 +1,22 @@
+nav button {
+  margin-right: 10px;
+}
+.myIssuesContainer {
+  width: 100%;
+  min-width: 300px;
+  min-height: 250px;
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid $primary-border;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+
+  .myIssuesCard {
+    width: 98%;
+    border: 1px solid $primary-border;
+    margin-top: 10px;
+    padding: 10px;
+  }
+}

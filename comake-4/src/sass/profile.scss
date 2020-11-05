@@ -1,0 +1,45 @@
+.profileContainer {
+  width: 100%;
+  min-width: 300px;
+  min-height: 250px;
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid $primary-border;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+
+  form {
+    width: 98%;
+    padding: 10px 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    label {
+      width: 90%;
+      margin: 0 auto;
+      font-size: $primary-text-size;
+    }
+
+    textarea {
+      width: 90%;
+      min-height: 200px;
+    }
+    
+    .leftDiv,
+    .rightDiv {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .leftDiv {
+      width: 40%;
+    }
+    .rightDiv {
+      width: 60%;
+    }
+  }
+}

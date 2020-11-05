@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link,
-  NavLink,
 } from "react-router-dom";
 
 // components
@@ -15,17 +13,13 @@ import MyIssues from "./components/myIssues";
 import EditIssue from "./components/editIssue";
 import PrivateRoute from "./utils/PrivateRoute";
 
-// styles
-import './App.css';
-
 function App() {
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className='App-h1'>Co-make-4</h1>      
+        <h1>Co-make-4</h1>      
       </header>
-   
 
       <Switch>
         <PrivateRoute path="/main" component={Main} /> 

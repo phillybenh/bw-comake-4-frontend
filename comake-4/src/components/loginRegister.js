@@ -40,7 +40,6 @@ const Login = (props) => {
   };
   const userRegister = (e) => {
     e.preventDefault();
-
     axiosWithAuth()
       .post("/register", login)
       .then((res) => {

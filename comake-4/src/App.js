@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -12,8 +12,6 @@ import UserProfile from "./components/userProfile";
 import MyIssues from "./components/myIssues";
 import EditIssue from "./components/editIssue";
 import PrivateRoute from "./utils/PrivateRoute";
-
-
 
 function App() {
 

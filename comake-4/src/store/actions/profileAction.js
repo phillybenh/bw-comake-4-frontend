@@ -39,7 +39,6 @@ export const updateProfile = props => {
         axiosWithAuth()
             .put(`/users/${localStorage.getItem("userID")}`, props)
             .then(res => {
-                console.log({ res })
                 dispatch({
                     type: UPDATE_PROFILE_SUCCESS,
                     payload: res.data,

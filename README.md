@@ -23,9 +23,9 @@ In an effort to get my portfolio in order and keep the project updated, I'm refa
 |                | Code Quality    |     ✅     |
 |                | Test Coverage   |            |
 |                | Form Validation |            |
-| User Profile   | Sass            |            |
-|                | Styling         |            |
-|                | Code Quality    |            |
+| User Profile   | Sass            |     ✅     |
+|                | Styling         |     ✅     |
+|                | Code Quality    |     ✅     |
 |                | Test Coverage   |            |
 |                | Form Validation |            |
 | My Issues      | Sass            |            |
@@ -43,7 +43,7 @@ In an effort to get my portfolio in order and keep the project updated, I'm refa
 | Component        | Update              | Completed? |
 | :--------------- | :------------------ | :--------: |
 | Upvote           | Fix Infinite Upvote |            |
-| Local Issues     | Sass                |     ✅     |
+| Local Issues     | Sass                |            |
 |                  | Styling             |            |
 |                  | Code Quality        |            |
 |                  | Test Coverage       |            |

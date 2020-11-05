@@ -59,7 +59,6 @@ export const userReducer = (state = initialState, action) => {
                 isFetching: true
             };
         case REGISTER_USER_SUCCESS:
-            // localStorage.setItem("token", JSON.stringify(action.token))
 
             return {
                 ...state,
@@ -104,6 +103,7 @@ export const userReducer = (state = initialState, action) => {
                 isFetching: true
             };
         case UPDATE_PROFILE_SUCCESS:
+            alert("Profile updated successfully.")
             return {
                 ...state,
                 isFetching: false

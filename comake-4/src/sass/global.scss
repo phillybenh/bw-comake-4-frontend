@@ -24,7 +24,7 @@ button {
   cursor: pointer;
   background-color: $primary-highlight;
   width: 180px;
-  margin: 10px;
+  margin: 10px 0;
   color: $primary-background;
   padding: 8px 10px;
   border: none;
@@ -46,6 +46,17 @@ h1 {
 h2 {
   font-size: $secondary-heading-size;
   color: $primary-text;
+}
+
+.btnRow {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  button {
+    margin: 10px
+  }
 }
 
 .App-header {

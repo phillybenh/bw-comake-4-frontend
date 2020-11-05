@@ -16,20 +16,27 @@ In an effort to get my portfolio in order and keep the project updated, I'm refa
 
 #### Ben's Components
 
-| Component      | Update        | Completed? |
-| :------------- | :------------ | :--------: |
-| Login/Register | Sass          |     ✅     |
-|                | Styling       |            |
-|                | Code Quality  |            |
-|                | Test Coverage |            |
-| User Profile   | Sass          |            |
-|                | Styling       |            |
-|                | Code Quality  |            |
-|                | Test Coverage |            |
-| My Issues      | Sass          |            |
-|                | Styling       |            |
-|                | Code Quality  |            |
-|                | Test Coverage |            |
+| Component      | Update          | Completed? |
+| :------------- | :-------------- | :--------: |
+| Login/Register | Sass            |     ✅     |
+|                | Styling         |            |
+|                | Code Quality    |            |
+|                | Test Coverage   |            |
+|                | Form Validation |            |
+| User Profile   | Sass            |            |
+|                | Styling         |            |
+|                | Code Quality    |            |
+|                | Test Coverage   |            |
+|                | Form Validation |            |
+| My Issues      | Sass            |            |
+|                | Styling         |            |
+|                | Code Quality    |            |
+|                | Test Coverage   |            |
+| Edit Issues    | Sass            |            |
+|                | Styling         |            |
+|                | Code Quality    |            |
+|                | Test Coverage   |            |
+|                | Form Validation |            |
 
 #### Emixo's Components
 

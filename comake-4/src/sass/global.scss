@@ -1,3 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    background-color: #F5F5F5;
+    width: 95%;
+    margin: 0 auto;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.heading {
+  font-weight: 700;
+}
+
 .App {
   background-color: #F5F5F5;
 }
@@ -77,8 +100,6 @@ textarea {
   flex-direction: column;
 
 }
-
-
 
 .localIssuesList {
   display: flex;

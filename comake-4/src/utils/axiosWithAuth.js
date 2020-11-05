@@ -8,7 +8,7 @@ export const axiosWithAuth = () => {
         headers: {
             Authorization: token,
         },
-        
+
         baseURL: "https://comake-remake.herokuapp.com/",
     });
 };

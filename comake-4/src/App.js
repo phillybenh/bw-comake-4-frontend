@@ -15,8 +15,7 @@ import MyIssues from "./components/myIssues";
 import EditIssue from "./components/editIssue";
 import PrivateRoute from "./utils/PrivateRoute";
 
-// styles
-import './App.css';
+
 
 function App() {
 

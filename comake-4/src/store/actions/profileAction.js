@@ -9,20 +9,17 @@ export const UPDATE_PROFILE_FAIL = "UPDATE_PROFILE_FAIL";
 
 
 export const getProfile = props => {
-    // console.log({ props })
     return dispatch => {
         dispatch({ type: GET_PROFILE_START })
         axiosWithAuth()
             .get(`/users/${localStorage.getItem("userID")}`)
             .then(res => {
-                // console.log({ res })
                 dispatch({
                     type: GET_PROFILE_SUCCESS,
                     payload: res.data,
                 })
             })
             .catch(err => {
-                // console.log({err})
                 dispatch({
                     type: GET_PROFILE_FAIL,
                     payload: `${err}`
@@ -42,8 +39,6 @@ export const updateProfile = props => {
                 dispatch({
                     type: UPDATE_PROFILE_SUCCESS,
                     payload: res.data,
-                    // may need depending on what API returns
-                    // usernamePayload: newUser.username,
                 })
             })
             .catch(err => {
@@ -54,7 +49,4 @@ export const updateProfile = props => {
                 })
             })
     }
-
-
-
 }

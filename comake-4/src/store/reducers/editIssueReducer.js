@@ -8,7 +8,6 @@ import {
 } from "../actions"
 
 export const initialState = {
-
     isFetching: false,
     error: "",
     issue: {

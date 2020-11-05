@@ -23,7 +23,7 @@ export const initialState = {
     id: "",
     isFetching: false,
     error: "",
-    myIssues: [], 
+    myIssues: [],
 }
 
 export const userReducer = (state = initialState, action) => {
@@ -34,9 +34,6 @@ export const userReducer = (state = initialState, action) => {
                 isFetching: true
             };
         case LOGIN_USER_SUCCESS:
-            // localStorage.setItem("token", JSON.stringify(action.token))
-            // localStorage.setItem("userID", action.user.id)
-            // console.log(action.payload.token)
             return {
                 ...state,
                 username: action.user.username,
@@ -75,7 +72,6 @@ export const userReducer = (state = initialState, action) => {
             };
         case GET_PROFILE_SUCCESS:
             localStorage.setItem("userID", action.payload.id)
-
             return {
                 ...state,
                 username: action.payload.username,

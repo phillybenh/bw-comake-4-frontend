@@ -11,13 +11,10 @@ export const DELETE_ISSUES_SUCCESS = "DELETE_ISSUES_SUCCESS";
 
 
 export const getMyIssues = props => {
-    // console.log({ props })
     return dispatch => {
         dispatch({ type: GET_ISSUES_START })
         axiosWithAuth()
-        //TODO: reset to just get the users issues
             .get(`/issues?user_id=${localStorage.getItem("userID")}`)
-            // .get('/issues')
             .then(res => {
                 console.log({ res })
                 dispatch({
@@ -26,7 +23,7 @@ export const getMyIssues = props => {
                 })
             })
             .catch(err => {
-                console.log({err})
+                console.log({ err })
                 dispatch({
                     type: GET_ISSUES_FAIL,
                     payload: `${err}`

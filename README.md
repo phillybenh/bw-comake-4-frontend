@@ -1,15 +1,61 @@
-# COMAKE Redeploy
+# COMAKE Refactored
+
 ## [Comake-Remake](https://bw-comake-4-frontend.phillybenh.now.sh)
 
- In an effort to get my portfolio in order and keep the projects updated, I'm redeploying this react app that was originally created for a Lambda School build week group project. 
- 
- [Original Project Repo](https://github.com/bw-comake-4)
+In an effort to get my portfolio in order and keep the project updated, I'm refactoring this project to better match the original wireframe, improve readability and test coverage, and generally better align with my current preferences.
 
+### Focus
 
-# Original README
-# frontend
+- App Styling
+  - Switch to Sass
+  - Improve match with wireframe
+- Readability and code style
+- Test Coverage
 
-React 1: [emixo](https://github.com/emixo) 
+### To Do
+
+#### Ben's Components
+
+| Component      | Update        | Completed? |
+| :------------- | :------------ | :--------: |
+| Login/Register | Sass          |     ✅     |
+|                | Styling       |            |
+|                | Code Quality  |            |
+|                | Test Coverage |            |
+| User Profile   | Sass          |            |
+|                | Styling       |            |
+|                | Code Quality  |            |
+|                | Test Coverage |            |
+| My Issues      | Sass          |            |
+|                | Styling       |            |
+|                | Code Quality  |            |
+|                | Test Coverage |            |
+
+#### Emixo's Components
+
+| Component        | Update              | Completed? |
+| :--------------- | :------------------ | :--------: |
+| Upvote           | Fix Infinite Upvote |            |
+| Local Issues     | Sass                |     ✅     |
+|                  | Styling             |            |
+|                  | Code Quality        |            |
+|                  | Test Coverage       |            |
+| Submit New Issue | Sass                |            |
+|                  | Styling             |            |
+|                  | Code Quality        |            |
+|                  | Test Coverage       |            |
+
+![App Wireframe](bw-comake-4.png "COMAKE Wireframe")
+
+## Original README
+
+[Original Project Repo](https://github.com/bw-comake-4)
+
+---
+
+## frontend
+
+React 1: [emixo](https://github.com/emixo)
 
 React 2: [phillybenh](https://github.com/phillybenh)
 
@@ -23,17 +69,17 @@ Co-Make Product Vision
 ☝️ Proposal
 
 What problem does your app solve?
-Helps the community 
+Helps the community
 Be as specific as possible; how does your app solve the problem?
 Helps report issues with your community and increases community engagement
 Helps with prioritizing problems
 What is the mission statement?
-Empower citizens to help initiate the change they want to see in their community 
+Empower citizens to help initiate the change they want to see in their community
 💡 Features
 
 What features are required for your minimum viable product?
 Upvote / downvote
-Submitting/editing issues 
+Submitting/editing issues
 Creating a user profile
 Login/Logout
 Signup
@@ -68,5 +114,3 @@ How long do you think it will take to implement these features?
 Within a week
 Do you anticipate working on stretch functionality after completion of a Minimal Viable Product?
 TBD
-
-

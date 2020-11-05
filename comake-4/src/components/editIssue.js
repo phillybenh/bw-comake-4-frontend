@@ -10,11 +10,7 @@ const EditIssue = (props) => {
   const { push } = useHistory();
   const { id } = useParams();
 
-  useEffect(() => {
-    props.getEditMyIssue(id);
-  }, []);
   const initialState = {};
-
   const [editIssue, setEditIssue] = useState(initialState);
 
   useEffect(() => {
@@ -51,30 +47,32 @@ const EditIssue = (props) => {
           <button onClick={() => push("/main")}>Main</button>
         </nav>
       </header>
-
-      <h2>Edit Your Issue</h2>
-      {props.isFetching && (
-        <Loader type="Grid" color="#00BFFF" height={80} width={80} />
-      )}
-      <div className="editIssueContainer">
+      <div className="editIssuesContainer">
+        <h2>Edit Your Issue</h2>
+        {props.isFetching && (
+          <Loader type="Grid" color="#00BFFF" height={80} width={80} />
+        )}
         <form onSubmit={handleSubmit}>
+          <label>Title
           <input
-            label="Title:"
+            id="title:"
             type="text"
             name="short_description"
             placeholder="Issue Title"
             value={editIssue.short_description}
             onChange={handleChange}
           />
-          <br />
+          </label>
+          <label>Description
           <textarea
-            label="Description:"
+            id="description:"
             type="text"
             name="description"
             placeholder="Issue Description"
             value={editIssue.description}
             onChange={handleChange}
           />
+          </label>
           <button>Update Issue</button>
         </form>
       </div>

@@ -7,10 +7,11 @@ import { getProfile, updateProfile } from "../store/actions";
 
 const UserProfile = (props) => {
   const { push } = useHistory();
+  const [modified, setModified] = useState(false);
 
   useEffect(() => {
     props.getProfile(localStorage.getItem("userID"));
-  }, []);
+  }, [modified]);
 
   const initialState = {
     username: props.username,
@@ -34,6 +35,7 @@ const UserProfile = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.updateProfile(userInfo);
+    setModified(!modified)
   };
 
   const logout = (e) => {

@@ -34,7 +34,7 @@ button {
 
 h1 {
   font-size: $primary-heading-size;
-  font-weight: 700;
+  font-weight: 800;
   color: $primary-text;
   text-align: center;
   padding: 10px;
@@ -45,7 +45,20 @@ h1 {
 }
 h2 {
   font-size: $secondary-heading-size;
+  font-weight: 600;
   color: $primary-text;
+}
+h3 {
+  font-size: $secondary-heading-size;
+  font-weight: 300;
+  color: $primary-text;
+}
+
+p,
+li {
+  font-size: $primary-text-size;
+  font-weight: 600;
+  line-height: 1.2rem;
 }
 
 .btnRow {
@@ -55,16 +68,8 @@ h2 {
   justify-content: center;
   align-items: center;
   button {
-    margin: 10px
+    margin: 10px;
   }
-}
-
-.App-header {
-  min-height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .SubmitIssue {
@@ -93,26 +98,4 @@ h2 {
   margin-left: 7%;
   margin-right: 7%;
   padding-bottom: 3%;
-}
-
-.otherButton {
-  display: flex;
-  justify-content: center;
-  padding-top: 2%;
-}
-
-.profileH2 {
-  text-align: center;
-  font-size: 2.5rem;
-}
-
-.styling {
-  border: 1px solid $primary-border;
-  margin: 2%;
-  padding-bottom: 3%;
-}
-
-.myIssueH2 {
-  text-align: center;
-  font-size: 2.5rem;
 }

@@ -1,0 +1,31 @@
+nav button {
+  margin-right: 10px;
+}
+.editIssuesContainer {
+  width: 100%;
+  min-width: 300px;
+  min-height: 250px;
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid $primary-border;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+
+    form {
+      width: 98%;
+      padding: 10px 0;
+     
+
+      label {
+        width: 90%;
+        margin: 0 auto;
+        font-size: $primary-text-size;
+      }
+      button {
+          margin: 0 auto;
+      }
+
+    }
+}

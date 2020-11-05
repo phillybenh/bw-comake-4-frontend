@@ -28,13 +28,13 @@ In an effort to get my portfolio in order and keep the project updated, I'm refa
 |                | Code Quality    |     ✅     |
 |                | Test Coverage   |            |
 |                | Form Validation |            |
-| My Issues      | Sass            |            |
-|                | Styling         |            |
-|                | Code Quality    |            |
+| My Issues      | Sass            |     ✅     |
+|                | Styling         |     ✅     |
+|                | Code Quality    |     ✅     |
 |                | Test Coverage   |            |
-| Edit Issues    | Sass            |            |
-|                | Styling         |            |
-|                | Code Quality    |            |
+| Edit Issues    | Sass            |     ✅     |
+|                | Styling         |     ✅     |
+|                | Code Quality    |     ✅     |
 |                | Test Coverage   |            |
 |                | Form Validation |            |
 

@@ -21,21 +21,21 @@ In an effort to get my portfolio in order and keep the project updated, I'm refa
 | Login/Register | Sass            |     ✅     |
 |                | Styling         |     ✅     |
 |                | Code Quality    |     ✅     |
-|                | Test Coverage   |            |
+|                | Testing         |            |
 |                | Form Validation |            |
 | User Profile   | Sass            |     ✅     |
 |                | Styling         |     ✅     |
 |                | Code Quality    |     ✅     |
-|                | Test Coverage   |            |
+|                | Testing         |            |
 |                | Form Validation |            |
 | My Issues      | Sass            |     ✅     |
 |                | Styling         |     ✅     |
 |                | Code Quality    |     ✅     |
-|                | Test Coverage   |            |
+|                | Testing         |            |
 | Edit Issues    | Sass            |     ✅     |
 |                | Styling         |     ✅     |
 |                | Code Quality    |     ✅     |
-|                | Test Coverage   |            |
+|                | Testing         |            |
 |                | Form Validation |            |
 
 #### Emixo's Components
@@ -46,11 +46,11 @@ In an effort to get my portfolio in order and keep the project updated, I'm refa
 | Local Issues     | Sass                |            |
 |                  | Styling             |            |
 |                  | Code Quality        |            |
-|                  | Test Coverage       |            |
+|                  | Testing             |            |
 | Submit New Issue | Sass                |            |
 |                  | Styling             |            |
 |                  | Code Quality        |            |
-|                  | Test Coverage       |            |
+|                  | Testing             |            |
 
 ![App Wireframe](bw-comake-4.png "COMAKE Wireframe")
 

@@ -87,7 +87,6 @@ const Login = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.user);
   return {
     username: state.user.username,
     isFetching: state.user.isFetching,
